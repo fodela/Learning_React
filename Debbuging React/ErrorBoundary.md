@@ -49,7 +49,7 @@ ErrorBoundary is a higher-order component that handles error in a way we want
 
        - Remember to include any key in ErrorBoundary since it is now the outermost component.
 
-       ```
+       ````
         import ErrorBoundary from "./ErrorBoundary/ErrorBoundary"
 
         return (
@@ -62,4 +62,5 @@ ErrorBoundary is a higher-order component that handles error in a way we want
                 />
               </ErrorBoundary>
             );
-       ```
+       ```[]
+       ````
