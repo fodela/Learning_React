@@ -237,3 +237,15 @@ const nameChangeHandler = (event, id) => {
 7. When should you optimize?
    When parent change but in a way that does not affect this component at all.
    Not used when the component has to update anytime the parent updates. The optimization check is unnecessary and only slows down the application.
+
+8. pureComponent vs shouldComponentUpdate
+   pureComponent is a normal component that already implement shouldComponentUpdate with complete props check
+   It is used when a number of factors have to be checked using shouldComponentUpdate in order to optimize the application
+   It is imported and extended in class based component instead of the normal component.
+   '''
+   import {pureComponent} from 'react
+
+   class myComponent extends pureComponent(){
+
+   }
+   '''
