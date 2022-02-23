@@ -249,3 +249,11 @@ const nameChangeHandler = (event, id) => {
 
    }
    '''
+
+9. How does React update the real DOM?
+   the method render() does not automatically update the DOM
+   - React uses two virtual DOMs
+     1. an old virtual DOM and a
+     2. Re rendered virtual DOM => is created using render()
+   - React then compares the two DOMs and only update the difference and not re-render the whole DOM. Because accessing the DOM is very slow and functionality expensive.
+   - shouldComponentUpdate allows us to manipulate when a sub-component should update when its parent is updated.
