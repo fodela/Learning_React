@@ -270,7 +270,13 @@ const nameChangeHandler = (event, id) => {
 2. A better way is to create a higher order component.
    Inside, create Auxillary.js file
    '''
-   import React from 'react';
    const aux = props => props.children;
    export default aux
+   '''
+3. We can use the REact 16.2 in-built aux component called Fragment
+   '''
+   import {Component, Fragment} from 'react'
+   <Fragment>
+   children
+   <Fragment/>
    '''
