@@ -1,3 +1,7 @@
+## NB:
+
+- React must be imported in every file that renders a JSX code.
+
 ## How to create a component
 
 Two options
@@ -258,7 +262,7 @@ const nameChangeHandler = (event, id) => {
    - React then compares the two DOMs and only update the difference and not re-render the whole DOM. Because accessing the DOM is very slow and functionality expensive.
    - shouldComponentUpdate allows us to manipulate when a sub-component should update when its parent is updated.
 
-### Rendering Adjascent JSX Element
+### Rendering Adjacent JSX Element
 
 - So far React only allows us to render a single child (usually '<div>')
 
