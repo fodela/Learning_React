@@ -278,5 +278,41 @@ const nameChangeHandler = (event, id) => {
    import {Component, Fragment} from 'react'
    <Fragment>
    children
-   <Fragment/>
+   </Fragment>
    '''
+
+### Higher Order Component
+
+- They are components that wrap other components and add something (e.g styling error handling,logics etc) to it
+- they, by convention, start with 'With'
+- 2 ways to create it
+
+  1.  Using props => Used for changing style handle error etc...
+      '''
+      const WithClass = (props)=>(
+      <div className = props.classes>
+      props.children
+      </div>
+      )
+      )
+      //How it is used
+      //We import and wrap our component with it
+      <WithClass classes='AppStyle>
+      <OurComponent/>
+      <WithClass>
+      '''
+
+  2.  Return a js function => Used for logic
+      Name start with lowercase
+      '''
+      const withClass = (WrappedComponent,className) => {
+      return props => (
+      <div className = {className}>
+      <WrappedComponent>
+      </div>
+      )
+      }
+      //How it used
+      //Wrap the entire component with it
+      export default withClass(App, myClassName)
+      '''
