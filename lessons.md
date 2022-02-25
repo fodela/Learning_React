@@ -257,3 +257,16 @@ const nameChangeHandler = (event, id) => {
      2. Re rendered virtual DOM => is created using render()
    - React then compares the two DOMs and only update the difference and not re-render the whole DOM. Because accessing the DOM is very slow and functionality expensive.
    - shouldComponentUpdate allows us to manipulate when a sub-component should update when its parent is updated.
+
+### Rendering Adjascent JSX Element
+
+- So far React only allows us to render a single child (usually '<div>')
+
+1. We return an array instead with each element having a unique key and separated by ','
+2. A better way is to create a higher order component.
+   Inside, create Auxillary.js file
+   '''
+   import React from 'react';
+   const aux = props => props.children;
+   export default aux
+   '''
