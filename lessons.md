@@ -323,3 +323,14 @@ const nameChangeHandler = (event, id) => {
   '''
   <WrappedComponent {...props}>
   '''
+
+### Setting State Correctly
+
+When we are doing state update that depends on the old state, we don't just set the new state directly, instead we pass in a function that return stateName : prevState.stateName + changes
+'''
+this.setState((prevState,props)=>{
+return {
+this.stateName: prevState.stateName + changes
+}
+})
+'''
