@@ -316,3 +316,10 @@ const nameChangeHandler = (event, id) => {
       //Wrap the entire component with it
       export default withClass(App, myClassName)
       '''
+
+### Passing unknown props
+
+- While working with hoc we cannot pass props. This challenge may be overcome by passing prop to the wrapped component using the spread operator
+  '''
+  <WrappedComponent {...props}>
+  '''
