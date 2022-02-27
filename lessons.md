@@ -321,7 +321,7 @@ const nameChangeHandler = (event, id) => {
 
 - While working with hoc we cannot pass props. This challenge may be overcome by passing prop to the wrapped component using the spread operator
   '''
-  <WrappedComponent {...props}>
+  <WrappedComponent {...props}/>
   '''
 
 ### Setting State Correctly
@@ -334,3 +334,22 @@ this.stateName: prevState.stateName + changes
 }
 })
 '''
+
+### Using PropTypes to improve how we receive props
+
+- Is used to set which prop our component uses and pass an error when an incorrect prop is passed.
+- This is only needed if you are building a library that other will use or working in a bigger team.
+- With this if anyone pass the incorrect type of props they get a warning.
+- How it is done
+  '''
+  //install prop-types
+  npm install --save prop-types
+
+  //import it into your component
+  import PropTypes from 'prop-types'
+
+  ComponentName.propTypes = {
+  propName: PropTypes.func,
+  propName: PropTypes.string
+  }
+  '''
