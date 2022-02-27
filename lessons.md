@@ -401,3 +401,8 @@ const specificBtnRef = useRef(null)
 useEffect(()=>{
 specificBtnRef.current.click()
 },[])
+'''
+
+### Understanding Prop Chain Problems
+
+- For a component A with subcomponent B which has another subcomponent C then subcomponent D, to pass a prop from A to d we have to pass the prop through B and C. This is a problem. We can solve it using context.
