@@ -353,3 +353,37 @@ this.stateName: prevState.stateName + changes
   propName: PropTypes.string
   }
   '''
+
+### Using Refs
+
+The 'ref' keyword can be used in to reference a particular element we want to select. It is like adding an id to allow selection using 'document.getquerySeletor' of vanilla js.
+
+- How it used:
+  Say we want to focus a specific element
+
+1.  '''
+    // set it up
+    <element
+    ref={(elementAlias)=>{this.htmlElement = elementAlias}}
+    />
+
+    //We use it the way we want
+    componentDidMount(){
+    this.htmlElement.focus()
+    }
+    '''
+
+2.  React 16.3 and above
+    '''
+    constructor(props){
+    super(props);
+    elmentAlias = React.createRef();
+    }
+    <element
+    ref={this.elementAlias}
+    />
+
+    componentDidMount(){
+    this.elementAlias.current.focus()
+    }
+    '''
