@@ -358,6 +358,8 @@ this.stateName: prevState.stateName + changes
 
 The 'ref' keyword can be used in to reference a particular element we want to select. It is like adding an id to allow selection using 'document.getquerySeletor' of vanilla js.
 
+NB: references can also be used to store value but is an advanced concept for later.
+
 - How it used:
   Say we want to focus a specific element
 
@@ -387,3 +389,15 @@ The 'ref' keyword can be used in to reference a particular element we want to se
     this.elementAlias.current.focus()
     }
     '''
+
+### Using Refs with React Hooks
+
+Refs can also be used for function based components
+'''
+import {useEffect, useRef} from 'react'
+// first set it to null
+const specificBtnRef = useRef(null)
+// inside useEffect (this will allow the DOM to be be rendered first) implement what you want.
+useEffect(()=>{
+specificBtnRef.current.click()
+},[])
