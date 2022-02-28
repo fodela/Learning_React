@@ -406,3 +406,37 @@ specificBtnRef.current.click()
 ### Understanding Prop Chain Problems
 
 - For a component A with subcomponent B which has another subcomponent C then subcomponent D, to pass a prop from A to d we have to pass the prop through B and C. This is a problem. We can solve it using context.
+
+### Using context API
+
+It is a js object (not just dictionary) that can be passed between component without using props.
+
+- It takes the variable to the subcomponent without having to pass through every single supercomponent before reaching the targeted subcomponent.
+
+- How it is used
+
+  1.  the context component
+      '''
+      import React from 'react'
+      const authContext - React.createContext({authenticated: false,login:()=>{}})
+
+      export authContext
+
+      '''
+
+  2.  In our component A from the above e.g. Wrap ur component with the context component after importing the context component.Provider as a child
+
+  3.  define the value in the wrap
+      '''
+      import AuthContext from ../context/auth_context
+      <AuthContext.Provider
+      value={{
+      authenticated:this.state.authenticated,login:this.loginHandler}
+      }>
+      <myComponent/>
+      </AuthContext.Provider>
+      '''
+
+  4.  In our component D from the above e.g,
+      wrap
+      '''
