@@ -438,5 +438,10 @@ It is a js object (not just dictionary) that can be passed between component wit
       '''
 
   4.  In our component D from the above e.g,
-      wrap
+      wrap what ever I want the variable for as a dynamic variable and a child of AuthContext.Consumer
       '''
+      <AuthContext.Consumer>
+      {(context)=> the way I want to use the variable}
+      </AuthContext.Consumer>
+
+NB:
