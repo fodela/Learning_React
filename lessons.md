@@ -444,4 +444,18 @@ It is a js object (not just dictionary) that can be passed between component wit
       {(context)=> the way I want to use the variable}
       </AuthContext.Consumer>
 
-NB:
+NB: this however does not allow us to access the variable (context) anywhere else in the class or function. We can solve this using: contextType
+
+### Using contextType
+
+- Is a better way to use context in class based component
+
+- React 16.6 and above introduced contextType
+- How it is used
+  '''
+  const contextType = AuthContext
+
+      // Where you want to use it
+      {this.context.authenticated}
+
+  '''
