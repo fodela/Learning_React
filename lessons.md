@@ -459,3 +459,15 @@ NB: this however does not allow us to access the variable (context) anywhere els
       {this.context.authenticated}
 
   '''
+
+### Using useContext
+
+- A better way to use context in functional components.
+  '''
+  import { useContext } from 'react'
+
+  const authContext = useContext(AuthContext)
+
+  // At where you want to use it
+  <button onClick={authContext.login}>
+  '''
