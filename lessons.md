@@ -466,7 +466,7 @@ NB: this however does not allow us to access the variable (context) anywhere els
   '''
   import { useContext } from 'react'
 
-  const authContext = useContext(AuthContext)
+  static authContext = useContext(AuthContext)
 
   // At where you want to use it
   <button onClick={authContext.login}>
