@@ -151,6 +151,7 @@ const nameChangeHandler = (event, id) => {
 #### Stateless vs Stateful
 
 - Majority of your component should be damn or stateless components this way is easier to manage as your projects grow
+- Stateless component are kept in the components folder while stateful ones are kept or created in the containers folder
 
 #### Class based vs function based
 
