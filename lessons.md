@@ -24,9 +24,7 @@ npm run eject
 
 //In config/webpack.config.dev.js find where we have 'test: \/.css$/, in options={
    importLoader: 1,
-   // copy and paste the below from the second webpack file:
-   minimize: true,
-   sourceMap: shouldUseSourceMap
+   // copy and paste the above into the second webpack file's option:
 
    //add
    modules:true,
