@@ -1,3 +1,9 @@
+## How to create a React app
+
+'''
+npx create-react-app app-name
+'''
+
 ## NB:
 
 - React must be imported in every file that renders a JSX code.
@@ -471,3 +477,14 @@ NB: this however does not allow us to access the variable (context) anywhere els
   // At where you want to use it
   <button onClick={authContext.login}>
   '''
+
+## How to plan a react Application / Project
+
+1. Component Tree / Component Structure
+   Designed ui => components tree
+
+2. Application State (Data)
+   The states or data you are going to use in the application
+
+3. Components vs Containers
+   stateless vs stateful
