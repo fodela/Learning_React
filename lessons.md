@@ -1,12 +1,50 @@
-## How to create a React app
+## Setting up a react Project
 
-'''
+1. ## Create a React app
+
+```
 npx create-react-app app-name
-'''
+
+//For the lesson purposes use:
+
+npx create-react-app app-name --scripts-version 1.1.5
+```
+
+app-name is case sensitive and should be all lowercase.
+
+2. ## Enable css module
+
+- css module allow us to reuse css classes and prevent the from being applied globally (affecting every element.)
+
+```
+//In terminal;
+cd app-name
+
+npm run eject
+
+//In config/webpack.config.dev.js find where we have 'test: \/.css$/, in options={
+   importLoader: 1,
+   // copy and paste the below from the second webpack file:
+   minimize: true,
+   sourceMap: shouldUseSourceMap
+
+   //add
+   modules:true,
+   localIdentName: '[name]__[local]__[hash:base64.5]'
+}
+
+// '[name]_[local]_[hash:base64:5]' => [original name of class]_[local name of component]_[added to a hash named base64:5]
+```
+
+3. Clean up the app by
+   1. deleting the svg file and its import
+   2. clear the App.js content and remove the class from the div
+   3. Delete the App.css file
+   4. Redefine your global reset in index.css and also add fonts to index.html
 
 ## NB:
 
-- React must be imported in every file that renders a JSX code.
+      - React must be imported in every file that renders a JSX code.
 
 ## How to create a component
 
@@ -216,14 +254,14 @@ const nameChangeHandler = (event, id) => {
      - If we want it to run only the first time when the component is rendered then we just pass in an empty argument.
      - arguments are passed as
 
-     '''
+     ```
      [props.argumentName1,props.argName2]
 
      useEffect(()=>{
      do something...
      },[props.componentName])
 
-     '''
+     ```
 
 4. Cleaning up with lifecycle Hook
 
@@ -252,13 +290,14 @@ const nameChangeHandler = (event, id) => {
    pureComponent is a normal component that already implement shouldComponentUpdate with complete props check
    It is used when a number of factors have to be checked using shouldComponentUpdate in order to optimize the application
    It is imported and extended in class based component instead of the normal component.
-   '''
+
+   ```
    import {pureComponent} from 'react
 
    class myComponent extends pureComponent(){
 
    }
-   '''
+   ```
 
 9. How does React update the real DOM?
    the method render() does not automatically update the DOM
@@ -275,17 +314,17 @@ const nameChangeHandler = (event, id) => {
 1. We return an array instead with each element having a unique key and separated by ','
 2. A better way is to create a higher order component.
    Inside, create Auxillary.js file
-   '''
+   ```
    const aux = props => props.children;
    export default aux
-   '''
+   ```
 3. We can use the REact 16.2 in-built aux component called Fragment
-   '''
+   ```
    import {Component, Fragment} from 'react'
    <Fragment>
    children
    </Fragment>
-   '''
+   ```
 
 ### Higher Order Component
 
@@ -294,7 +333,8 @@ const nameChangeHandler = (event, id) => {
 - 2 ways to create it
 
   1.  Using props => Used for changing style handle error etc...
-      '''
+
+      ```
       const WithClass = (props)=>(
       <div className = props.classes>
       props.children
@@ -306,11 +346,11 @@ const nameChangeHandler = (event, id) => {
       <WithClass classes='AppStyle>
       <OurComponent/>
       <WithClass>
-      '''
+      ```
 
   2.  Return a js function => Used for logic
       Name start with lowercase
-      '''
+      ```
       const withClass = (WrappedComponent,className) => {
       return props => (
       <div className = {className}>
@@ -321,25 +361,26 @@ const nameChangeHandler = (event, id) => {
       //How it used
       //Wrap the entire component with it
       export default withClass(App, myClassName)
-      '''
+      ```
 
 ### Passing unknown props
 
 - While working with hoc we cannot pass props. This challenge may be overcome by passing prop to the wrapped component using the spread operator
-  '''
+  ```
   <WrappedComponent {...props}/>
-  '''
+  ```
 
 ### Setting State Correctly
 
 When we are doing state update that depends on the old state, we don't just set the new state directly, instead we pass in a function that return stateName : prevState.stateName + changes
-'''
+
+```
 this.setState((prevState,props)=>{
 return {
 this.stateName: prevState.stateName + changes
 }
 })
-'''
+```
 
 ### Using PropTypes to improve how we receive props
 
@@ -347,7 +388,8 @@ this.stateName: prevState.stateName + changes
 - This is only needed if you are building a library that other will use or working in a bigger team.
 - With this if anyone pass the incorrect type of props they get a warning.
 - How it is done
-  '''
+
+  ```
   //install prop-types
   npm install --save prop-types
 
@@ -358,7 +400,7 @@ this.stateName: prevState.stateName + changes
   propName: PropTypes.func,
   propName: PropTypes.string
   }
-  '''
+  ```
 
 ### Using Refs
 
@@ -369,7 +411,7 @@ NB: references can also be used to store value but is an advanced concept for la
 - How it used:
   Say we want to focus a specific element
 
-1.  '''
+1.  ```
     // set it up
     <element
     ref={(elementAlias)=>{this.htmlElement = elementAlias}}
@@ -379,10 +421,11 @@ NB: references can also be used to store value but is an advanced concept for la
     componentDidMount(){
     this.htmlElement.focus()
     }
-    '''
+    ```
 
 2.  React 16.3 and above
-    '''
+
+    ```
     constructor(props){
     super(props);
     elmentAlias = React.createRef();
@@ -394,12 +437,13 @@ NB: references can also be used to store value but is an advanced concept for la
     componentDidMount(){
     this.elementAlias.current.focus()
     }
-    '''
+    ```
 
 ### Using Refs with React Hooks
 
 Refs can also be used for function based components
-'''
+
+```
 import {useEffect, useRef} from 'react'
 // first set it to null
 const specificBtnRef = useRef(null)
@@ -407,7 +451,7 @@ const specificBtnRef = useRef(null)
 useEffect(()=>{
 specificBtnRef.current.click()
 },[])
-'''
+```
 
 ### Understanding Prop Chain Problems
 
@@ -422,18 +466,20 @@ It is a js object (not just dictionary) that can be passed between component wit
 - How it is used
 
   1.  the context component
-      '''
+
+      ```
       import React from 'react'
       const authContext - React.createContext({authenticated: false,login:()=>{}})
 
       export authContext
 
-      '''
+      ```
 
   2.  In our component A from the above e.g. Wrap ur component with the context component after importing the context component.Provider as a child
 
   3.  define the value in the wrap
-      '''
+
+      ```
       import AuthContext from ../context/auth_context
       <AuthContext.Provider
       value={{
@@ -441,14 +487,15 @@ It is a js object (not just dictionary) that can be passed between component wit
       }>
       <myComponent/>
       </AuthContext.Provider>
-      '''
+      ```
 
   4.  In our component D from the above e.g,
       wrap what ever I want the variable for as a dynamic variable and a child of AuthContext.Consumer
-      '''
+      ```
       <AuthContext.Consumer>
       {(context)=> the way I want to use the variable}
       </AuthContext.Consumer>
+      ```
 
 NB: this however does not allow us to access the variable (context) anywhere else in the class or function. We can solve this using: contextType
 
@@ -458,18 +505,20 @@ NB: this however does not allow us to access the variable (context) anywhere els
 
 - React 16.6 and above introduced contextType
 - How it is used
-  '''
+
+  ```
   const contextType = AuthContext
 
       // Where you want to use it
       {this.context.authenticated}
 
-  '''
+  ```
 
 ### Using useContext
 
 - A better way to use context in functional components.
-  '''
+
+  ```
   import { useContext } from 'react'
 
   static authContext = useContext(AuthContext)
@@ -477,6 +526,7 @@ NB: this however does not allow us to access the variable (context) anywhere els
   // At where you want to use it
   <button onClick={authContext.login}>
   '''
+  ```
 
 ## How to plan a react Application / Project
 
