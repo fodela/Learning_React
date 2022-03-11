@@ -1,3 +1,7 @@
+## Notes:
+
+1.  We name global variable in all uppercase seperated by underscores
+
 ## Setting up a react Project
 
 1. ## Create a React app
@@ -537,3 +541,12 @@ NB: this however does not allow us to access the variable (context) anywhere els
 
 3. Components vs Containers
    stateless vs stateful
+
+### Adding more than one css class to an element
+
+- css classes are string type so we pass them as an array and then join them with " "
+
+```
+className={[classes.Button, classes[props.btnType]].join(" ")}
+
+```
