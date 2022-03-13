@@ -65,12 +65,24 @@ Two options
    ```
 
 2. function based
+
    ```
-   const ComponentName = ()=>{
+   import React from 'react';
+
+   //for components that need js logic or functionalities before outputting or returning Jsx
+
+   const componentName = ()=>{
    return(
    <div some elements /div>
    )
    }
+
+   //for components that only return jsx
+   const componentName = ()=>(
+      <div>some elements<div>
+   )
+
+   export default componentName
    ```
 
 ## conditional rendering
