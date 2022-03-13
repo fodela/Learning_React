@@ -550,3 +550,11 @@ NB: this however does not allow us to access the variable (context) anywhere els
 className={[classes.Button, classes[props.btnType]].join(" ")}
 
 ```
+
+### Working with Images
+
+We need to make webpack aware of us using images. We do this by importing the image to the file in which we want to use it:
+
+```
+import image from "./imageFolder/image.png"
+```
