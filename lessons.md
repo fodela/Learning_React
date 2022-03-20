@@ -85,6 +85,31 @@ Two options
    export default componentName
    ```
 
+## How to pass down a function
+
+1. add the listener to the component by a ref name
+
+```
+      <Component onClick={props.clicked}>
+
+```
+
+2. assign function to ref name where the component is rendered
+
+```
+      <ComponentRenderer>
+         <Component clicked={this.functionNameHandler}
+      </ComponentRenderer>
+```
+
+3. Create the function
+
+```
+const functionNameHandler => {
+dosomething...
+}
+```
+
 ## conditional rendering
 
 1.  def a state to be false
@@ -588,12 +613,14 @@ Is js library that handle http request
    npm install axios --save
 ```
 
-### Sending an Http request
+### Sending an Http request or get data
 
 - ComponentDidMount is the best place to send the request and cause side effects
   get request is asynchronous and cannot be saved into a constant.
   axios.get return a promise that we can use .then on to save the request in a constant
-- Anything you want to do with the response should be done in the .then and not after bcos the after line don't wait for the async to finish executing before they do.
+- Anything you want to do with the response should be done in the .then and not after because the after line don't wait for the async to finish executing before they do.
+
+NB: when we update the state in componentDidUpdate we creates an infinite loop.
 
 ```
 componentDidMount(){
@@ -602,4 +629,12 @@ componentDidMount(){
    }
    )
 }
+```
+
+### How to post data
+
+axios.post(address, dataToBePosted)
+
+```
+axios.post('https://jsonplaceholder.typicode.com/posts')
 ```
