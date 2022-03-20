@@ -570,3 +570,9 @@ We need to make webpack aware of us using images. We do this by importing the im
 ```
 import image from "./imageFolder/image.png"
 ```
+
+# Reaching out to the Web
+
+### Http Requests in React (Typically)
+
+Unlike the normal webpage where the browser send a request and gets back an html page, react gets back json data when it send a request.
