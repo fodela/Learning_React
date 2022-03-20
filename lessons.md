@@ -650,3 +650,11 @@ axios.post('https://jsonplaceholder.typicode.com/posts')
          dosomething...
       })
 ```
+
+### How to handle errors locally
+
+```
+   axios.get(url)
+      .then()
+      .catch(error=>{log or show the error})
+```
