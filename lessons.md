@@ -576,3 +576,30 @@ import image from "./imageFolder/image.png"
 ### Http Requests in React (Typically)
 
 Unlike the normal webpage where the browser send a request and gets back an html page, react gets back json data when it send a request.
+
+In the lesson, we used json placeholder
+
+### axios
+
+Is js library that handle http request
+
+```
+   //axios Installation
+   npm install axios --save
+```
+
+### Sending an Http request
+
+- ComponentDidMount is the best place to send the request and cause side effects
+  get request is asynchronous and cannot be saved into a constant.
+  axios.get return a promise that we can use .then on to save the request in a constant
+- Anything you want to do with the response should be done in the .then and not after bcos the after line don't wait for the async to finish executing before they do.
+
+```
+componentDidMount(){
+   axios.get('https://jsonplaceholder.typicode.com/posts').then(response=>{
+      console.log(response)
+   }
+   )
+}
+```
