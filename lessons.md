@@ -637,4 +637,16 @@ axios.post(address, dataToBePosted)
 
 ```
 axios.post('https://jsonplaceholder.typicode.com/posts')
+   .then(response => {
+      doSomething...
+   })
+```
+
+### How to delete data
+
+```
+   axios.delete('https://jsonplaceholder.typicode.com/posts/' + this.props.id)
+      .then(response =>{
+         dosomething...
+      })
 ```
