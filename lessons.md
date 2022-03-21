@@ -638,7 +638,7 @@ axios.post(address, dataToBePosted)
 ```
 axios.post('https://jsonplaceholder.typicode.com/posts')
    .then(response => {
-      doSomething...
+      //doSomething...
    })
 ```
 
@@ -647,7 +647,7 @@ axios.post('https://jsonplaceholder.typicode.com/posts')
 ```
    axios.delete('https://jsonplaceholder.typicode.com/posts/' + this.props.id)
       .then(response =>{
-         dosomething...
+         //dosomething...
       })
 ```
 
@@ -657,4 +657,37 @@ axios.post('https://jsonplaceholder.typicode.com/posts')
    axios.get(url)
       .then()
       .catch(error=>{log or show the error})
+```
+
+### How to execute code globally using interceptors
+
+Interceptors are functions that execute globally for every request sent or every response obtained
+
+- Uses:
+  - used for setting some common headers like authorization header
+  - used to log responses
+  - handle errors globally
+
+```
+// In index.js
+// For sending request
+axios.interceptors.request.use(request => {
+   //dosomething...
+   return request
+}, error =>{
+   //handle the error
+   return Promise.reject(error);
+})
+
+//For getting response
+axios.interceptor.response.use(
+   response => {
+      // dosomething
+      return response
+   },
+   error => {
+      //handle error
+      return Promise.reject(error)
+   }
+)
 ```
