@@ -691,3 +691,19 @@ axios.interceptor.response.use(
    }
 )
 ```
+
+### Setting a default global configuration
+
+For example if the server url is always the same we can set a default global config that whenever we type the rest into the get or post request it knows exactly the link.
+
+```
+//In index.js (is the first file to be executed)
+axios.defaults.baseURL ="https://url.com"
+
+axios.defaults.headers.common["Authorization"] = "AUTH TOKEN";
+axios.defaults.headers.post["Content-type"] = "application/json";
+```
+
+### Creating and using instances using axios
+
+If the url is not the same for all request and post we use instances
