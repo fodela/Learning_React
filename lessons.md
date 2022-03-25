@@ -712,6 +712,8 @@ If the url is not the same for all request and post we use instances
 
 It uses javascript to render different part of a single pages based on different path.
 
+The router package parse the url/path => read config => render / load appropriate JSX/Component
+
 NB: Not inbuilt in react, but rather a third party library
 
-The router package parse the url/path => read config => render / load appropriate JSX/Component
+We use two packages and install them the same way as before 1. react-router => contains the logic 2. react-router-dom => enable rendering to the dom
