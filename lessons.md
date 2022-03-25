@@ -680,7 +680,7 @@ axios.interceptors.request.use(request => {
 })
 
 //For getting response
-axios.interceptor.response.use(
+axios.interceptors.response.use(
    response => {
       // dosomething
       return response
