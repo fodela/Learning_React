@@ -707,3 +707,11 @@ axios.defaults.headers.post["Content-type"] = "application/json";
 ### Creating and using instances using axios
 
 If the url is not the same for all request and post we use instances
+
+### Routing (Multiple Pages in a Single Page Application)
+
+It uses javascript to render different part of a single pages based on different path.
+
+NB: Not inbuilt in react, but rather a third party library
+
+The router package parse the url/path => read config => render / load appropriate JSX/Component
