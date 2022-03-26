@@ -730,7 +730,7 @@ Is done in App.js or Index.js
    </BrowserRouter>
 ```
 
-### Route
+### Route | Rendering specific pages
 
 ````
 <BrowserRouter>
@@ -745,3 +745,17 @@ render={()=>JSX} => takes a functional component
 
 We can next multiple route into the same page.
 ````
+
+### How to prevent page from reloading when we click on a link.
+
+```
+import { Link } from 'react-router-dom'
+```
+
+Replace
+`<a href="path_or_url">MyLink</a>`
+with
+
+```<Link to="path_or_url">MyLink</Link>
+
+```
