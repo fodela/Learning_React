@@ -708,7 +708,7 @@ axios.defaults.headers.post["Content-type"] = "application/json";
 
 If the url is not the same for all request and post we use instances
 
-### Routing (Multiple Pages in a Single Page Application)
+## Routing (Multiple Pages in a Single Page Application)
 
 It uses javascript to render different part of a single pages based on different path.
 
@@ -717,3 +717,31 @@ The router package parse the url/path => read config => render / load appropriat
 NB: Not inbuilt in react, but rather a third party library
 
 We use two packages and install them the same way as before 1. react-router => contains the logic 2. react-router-dom => enable rendering to the dom
+
+### How to enable routing
+
+Is done in App.js or Index.js
+
+```
+   import { BrowserRouter } from 'react-router-dom'
+
+   <BrowserRouter>
+      <Component />
+   </BrowserRouter>
+```
+
+### Route
+
+````
+<BrowserRouter>
+   <Routes>
+      <Route path="/" exact render={()=> <h1>Home</h1>}>\
+   </Routes>
+</BrowserRouter>
+```
+path="/" => is my path starting with "/"
+exact => is my path exactly "/"
+render={()=>JSX} => takes a functional component
+
+We can next multiple route into the same page.
+````
