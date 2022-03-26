@@ -756,6 +756,15 @@ Replace
 `<a href="path_or_url">MyLink</a>`
 with
 
-```<Link to="path_or_url">MyLink</Link>
+```
+<Link to="path_or_url">MyLink</Link>
+```
 
+### How to access Route props
+
+We wrap the component with withRouter
+
+```
+import withRouter from 'react-router-dom'
+export default withRouter(post);
 ```
