@@ -795,3 +795,12 @@ activeStyle={{color: 'green',
                textDecoration: 'underline'}}
 >Home </Navlink>
 ```
+
+### How to get parameters of a clicked element
+
+```
+// example id
+componentDidMount(){
+   cardId = this.props.match.params.id
+}
+```
