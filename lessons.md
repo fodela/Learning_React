@@ -768,3 +768,30 @@ We wrap the component with withRouter
 import withRouter from 'react-router-dom'
 export default withRouter(post);
 ```
+
+### Creating a relative path
+
+- This attaches the new path to the end of the current path
+
+```
+<Link to={pathname: this.props.match.url + "path_or_url"}>MyLink</Link>
+```
+
+### Creating an active link
+
+Use NavLink instead of Link => this appends an "active" class to the clicked link which we can style differently in our css file.
+Remember to add exact
+
+```
+<NavLink to="/" exact>Home </NavLink>
+```
+
+We can also customize the active class by
+
+```
+<NavLink
+activeClassName="my-active"
+activeStyle={{color: 'green',
+               textDecoration: 'underline'}}
+>Home </Navlink>
+```
