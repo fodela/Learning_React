@@ -1,6 +1,6 @@
 ## Notes:
 
-1.  We name global variable in all uppercase seperated by underscores
+1.  We name global variable in all uppercase separated by underscores
 
 ## Setting up a react Project
 
@@ -145,7 +145,7 @@ dosomething...
 ## Deleting specific components
 
 - Get the index or key of the component you want to delete
-- Create a copy of the list in which the component is -- so as not to modify the original list directly. Is a good practice to prevent unforseen complications.
+- Create a copy of the list in which the component is -- so as not to modify the original list directly. Is a good practice to prevent unforeseen complications.
 - Splice off that component out of the list
 - Update the state
 
