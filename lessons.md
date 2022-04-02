@@ -733,14 +733,22 @@ Is done in App.js or Index.js
 ### Route | Rendering specific pages
 
 ````
+import {BrowserRouter, Route} from "react-router-dom"
+const App = () => {
+
 <BrowserRouter>
+   <subComponent/>
+</BrowserRouter>
+}
+
+const subComponent = ()=>{
    <Routes>
       <Route path="/" exact render={()=> <h1>Home</h1>}>\
    </Routes>
-</BrowserRouter>
+}
 ```
-path="/" => is my path starting with "/"
-exact => is my path exactly "/"
+path="/" => is my path starting with "/"?
+exact => is my path exactly "/"?
 render={()=>JSX} => takes a functional component
 
 We can next multiple route into the same page.
