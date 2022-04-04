@@ -812,3 +812,27 @@ componentDidMount(){
    cardId = this.props.match.params.id
 }
 ```
+
+### useNavigate | How to navigate to a different page by clicking a link on this page
+
+Is replacement for useHistory hook
+
+In the current page:
+
+```
+import {useNavigate} from react-router
+
+const Profile = ()=>{
+   let navigate = useNavigate()
+
+   return (
+      <div>
+         <p>Go to link</p>
+         <button onClick={()=>{
+            navigate('/link')
+            }
+         }> click me</button>
+      </div>
+   )
+}
+```
