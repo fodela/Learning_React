@@ -836,3 +836,13 @@ const Profile = ()=>{
    )
 }
 ```
+
+### useParams | How to show specific information (e.g current user's profile ) on this page (e.g profile page) depending the info (username of the current user) we want
+
+```
+// In main page or App file
+<Route path="/profile/:username element={<Profile/>} />
+// On profile file
+let { username } = useParams()
+
+```
