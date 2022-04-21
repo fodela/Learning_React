@@ -846,3 +846,29 @@ const Profile = ()=>{
 let { username } = useParams()
 
 ```
+
+## React v6 Routes
+
+React v6 is mainly function based and hence most of the class based approaches have been simplified into hooks
+
+### Routes Link rendering Syntax
+
+1. Every path must be a <Route></Route> component
+
+```
+<Route> path= "pathName" element={<Component/>}
+```
+
+2. Every Route component must be wrapped by a <Routes></Routes> component
+
+3. Every Routes component must be wrapped by a <BrowserRouter></BrowserRouter>
+
+```
+import {BrowseRouter as Router, Routes, Route} from 'react-router-dom'
+
+<Router>
+   <Routes>
+      <Route>path="pathName" element={<Component/>}
+   </Routes>
+</Router>
+```
