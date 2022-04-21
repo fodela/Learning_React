@@ -878,8 +878,10 @@ React v6 is mainly function based and hence most of the class based approaches h
 ```
 
 2. Every Route component must be wrapped by a <Routes></Routes> component
+   <Switch></Switch> was formerly used to make only route load at a time and if it get 2 or more matches it loads the last one. Is now obsolete though because Routes component takes care of it.
 
 3. Every Routes component must be wrapped by a <BrowserRouter></BrowserRouter>
+   - Enables us to use routing features in our application
 
 ```
 import {BrowseRouter as Router, Routes, Route} from 'react-router-dom'
