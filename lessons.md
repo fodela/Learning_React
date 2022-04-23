@@ -831,6 +831,40 @@ componentDidMount(){
 }
 ```
 
+## React v6 Routes
+
+React v6 is mainly function based and hence most of the class based approaches have been simplified into hooks
+
+### Routes Link rendering Syntax
+
+1. Every path must be a <Route></Route> component
+
+```
+<Route> path= "pathName" element={<Component/>}
+```
+
+2. Every Route component must be wrapped by a <Routes></Routes> component
+   <Switch></Switch> was formerly used to make only route load at a time and if it get 2 or more matches it loads the last one. Is now obsolete though because Routes component takes care of it.
+   Routes also takes care of the need for "exact" in the component Route declaration
+
+3. Every Routes component must be wrapped by a <BrowserRouter></BrowserRouter>
+   - Enables us to use routing features in our application
+
+```
+import {BrowseRouter as Router, Routes, Route} from 'react-router-dom'
+
+<Router>
+   <Routes>
+      <Route>path="pathName" element={<Component/>}
+   </Routes>
+</Router>
+```
+
+### Router Hooks
+
+- Only work in functional components
+- Are used to create a higher order component 'withRouter' to enable use in class components
+
 ### useNavigate | How to navigate to a different page by clicking a link on this page
 
 Is replacement for useHistory hook
@@ -865,30 +899,32 @@ let { username } = useParams()
 
 ```
 
-## React v6 Routes
+### Nested Route
 
-React v6 is mainly function based and hence most of the class based approaches have been simplified into hooks
-
-### Routes Link rendering Syntax
-
-1. Every path must be a <Route></Route> component
+A route can be called in a parent route or directly as a child component and use an alias <Outlet/> from react router where you want the component to be nested
+However ensure that the parent address is '/\*' to deactivate the auto exact parameter that Routes brings.
 
 ```
-<Route> path= "pathName" element={<Component/>}
-```
+//In a parent route
+// In container component
+<Routes>
+   <Route path="/*" element={<Parent/>}> Parent </Route>
+<Routes>
 
-2. Every Route component must be wrapped by a <Routes></Routes> component
-   <Switch></Switch> was formerly used to make only route load at a time and if it get 2 or more matches it loads the last one. Is now obsolete though because Routes component takes care of it.
+// In parent component
+<Routes>
+   <Route path=":id" element={<Child/>}> Child </Route>
+<Routes>
 
-3. Every Routes component must be wrapped by a <BrowserRouter></BrowserRouter>
-   - Enables us to use routing features in our application
 
-```
-import {BrowseRouter as Router, Routes, Route} from 'react-router-dom'
+//Directly nested in container
+//In container
 
-<Router>
-   <Routes>
-      <Route>path="pathName" element={<Component/>}
-   </Routes>
-</Router>
+<Routes>
+   <Route path="/*" element={<Parent/>}>
+      <Route path=":id" element={<Child/>}/>
+   </Route>
+<Routes>
+//Where we want to render the child component:
+   </Outlet>
 ```
