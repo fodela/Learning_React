@@ -963,3 +963,26 @@ if (redirect){
 this.props.router.navigate('path')
 this.props.router.navigate('path', replace)
 ```
+
+### Guards
+
+Used to ensure that some conditions are met before some pages are displayed. -e.g show page to only users that are authenticated
+In react define the condition and redirect to specific pages base on the condition
+-e.g
+
+```
+state {
+   unauth: true
+}
+componentDidMount(){
+   if unauth => this.props.router.navigate('path')
+}
+
+//OR
+
+<Routes>
+   {!this.state.unauth ? <Route path'path_name' element={<Component/>} : null />}
+
+   <Navigate from='path_name' to='home'>
+<Routes>
+```
