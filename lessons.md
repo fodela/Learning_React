@@ -955,6 +955,14 @@ if (redirect){
 
 // Use it where you need it
 {redirect}
+
+//OR
+
+<Routes>
+   <Route path="/*" element={<Component/>}/>
+  <Route path='*' element={<Navigate to='path' replace/>}/>
+
+<Routes>
 ```
 
 #### Simply switching the pages
@@ -985,4 +993,12 @@ componentDidMount(){
 
    <Navigate from='path_name' to='home'>
 <Routes>
+```
+
+### Handling 404 OR (not found)
+
+At the end of the Routes when all valid Route have been declared add the Route that should be rendered if none of the above is valid.
+
+```
+<Route path="*" element={<NotFound/>} />
 ```
