@@ -956,3 +956,10 @@ if (redirect){
 // Use it where you need it
 {redirect}
 ```
+
+#### Simply switching the pages
+
+```
+this.props.router.navigate('path')
+this.props.router.navigate('path', replace)
+```
