@@ -928,3 +928,19 @@ However ensure that the parent address is '/\*' to deactivate the auto exact par
 //Where we want to render the child component:
    </Outlet>
 ```
+
+### Redirect
+
+Formerly:
+Replace was the default so you would have specified push
+
+```
+<Redirect from 'path' to 'newPath' push>
+```
+
+Now:
+Push is the default so you must specify replace
+
+```
+<Navigate to 'path' replace>
+```
