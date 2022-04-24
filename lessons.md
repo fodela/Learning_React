@@ -944,3 +944,15 @@ Push is the default so you must specify replace
 ```
 <Navigate to 'path' replace>
 ```
+
+#### Conditional redirect
+
+```
+redirect = null
+if (redirect){
+   redirect = <Navigate to="destination">
+}
+
+// Use it where you need it
+{redirect}
+```
