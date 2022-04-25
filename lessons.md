@@ -1016,3 +1016,17 @@ const LazyComponent = React.lazy(()=>import("./pathName"))
 // We we want to render the component
 <Route path='/pathName' />
 ```
+
+### Routing & The Server (Deployment)
+
+Normally in react:
+User sends a request to the server then the server handles the request (find out which page the user wants to visit and then send a response). This default behavior is problematic in react because even though the server may not know the requested page, it is the react app that knows the routes (pages). Hence we need to configure the server in a way that it always forwards the index page whether it knows the page or not.
+Then we handle the 404 ourself.
+If we are hosting the app on 'example.com/', no problem. However if we are hosting on 'example.com/my-app' then we need to let the react router know by setting a base path for the react router.
+
+```
+//Where you are setting up the router:
+<BrowserRouter basename="/my-app>
+   <ComponentWithRoutes />
+</BrowserRouter>
+```
