@@ -1002,3 +1002,17 @@ At the end of the Routes when all valid Route have been declared add the Route t
 ```
 <Route path="*" element={<NotFound/>} />
 ```
+
+### Lazy loading / Code Splitting
+
+Is the process of downloading only the pages you visit.
+
+- This improve performance, speed and saves data.
+
+```
+const LazyComponent = React.lazy(()=>import("./pathName"))
+
+
+// We we want to render the component
+<Route path='/pathName' />
+```
